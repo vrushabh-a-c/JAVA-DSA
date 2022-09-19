@@ -6,12 +6,9 @@ class Solution(object):
         :rtype: List[int]
         """
         seen = {}
-        
         for i in range(len(nums)):
-            remaining = target - nums[i]
-            
-            if remaining in seen:
-                return [i,seen[remaining]]
-            
+            if target-nums[i] in seen:
+                return (seen[target-nums[i]],i)
             else:
-                seen[nums[i]] = i
+                seen[nums[i]]=i
+        
